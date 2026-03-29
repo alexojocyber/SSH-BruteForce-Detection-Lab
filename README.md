@@ -112,10 +112,26 @@ Repeated failed SSH login attempts indicate a brute-force attack attempt. If suc
 The following screenshots were captured during the investigation:
 
 1. SSH service status
+<img width="1306" height="988" alt="ssh-service-running" src="https://github.com/user-attachments/assets/f7ebc51f-7345-4d7b-9290-985fe888d328" />
+
+
 2. Attacker user creation
+<img width="862" height="136" alt="attacker-user-created" src="https://github.com/user-attachments/assets/cfacbe3b-a086-4cef-900d-d0ca1cd947e4" />
+
+
 3. Failed SSH login attempts
+<img width="1845" height="999" alt="failed-ssh-login-attempt" src="https://github.com/user-attachments/assets/3e50bc69-938b-4703-a472-99924092247a" />
+
+
 4. Authentication log analysis
+<img width="1859" height="490" alt="failed-password-logs" src="https://github.com/user-attachments/assets/e6a6ce4d-03db-4940-8bc3-33a80a960db8" />
+
 5. Attack timeline extraction
+<img width="908" height="51" alt="failed-attempt-count" src="https://github.com/user-attachments/assets/b75ee034-37d9-460a-b0ec-5dfacbb32759" />
+
+<img width="1550" height="57" alt="first-attack" src="https://github.com/user-attachments/assets/49d96fc8-f24e-41a9-8e00-843ee802eeb8" />
+
+<img width="1842" height="140" alt="last-attack" src="https://github.com/user-attachments/assets/66dc3571-0d27-458e-961c-9042f8738f5b" />
 
 ---
 
