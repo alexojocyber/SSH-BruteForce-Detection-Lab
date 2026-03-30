@@ -146,6 +146,80 @@ The following screenshots were captured during the investigation:
 
 ---
 
+## 🛡️ Defense Implementation — Fail2Ban
+
+After detecting repeated failed SSH login attempts, Fail2Ban was installed to automatically block attackers after multiple failed login attempts.
+
+### 📦 Installing Fail2Ban
+```bash
+sudo apt update
+sudo apt install fail2ban -y
+```
+
+Fail2Ban service was started and enabled:
+```bash
+sudo systemctl start fail2ban
+sudo systemctl enable fail2ban
+sudo systemctl status fail2ban
+```
+
+---
+
+### ⚙️ SSH Protection Configuration
+
+A Fail2Ban rule was created to monitor SSH login failures.
+
+Configuration file:
+```bash
+sudo nano /etc/fail2ban/jail.local
+```
+
+Configuration used:
+```ini
+[sshd]
+enabled = true
+port = ssh
+maxretry = 3
+bantime = 600
+findtime = 300
+```
+
+This configuration blocks an IP address after **3 failed login attempts** within **5 minutes**, banning the attacker for **10 minutes**.
+
+---
+
+### 🚫 Attack Prevention Test
+
+Multiple failed SSH login attempts were generated again to trigger Fail2Ban protection.
+
+Fail2Ban status was checked using:
+```bash
+sudo fail2ban-client status sshd
+```
+
+Result:
+```
+Currently banned: 1
+```
+
+This confirms that the attacker IP was successfully blocked.
+
+---
+
+### 📸 Fail2Ban Screenshots
+
+The following screenshots demonstrate the defense implementation:
+
+- Fail2Ban service running
+<img width="1847" height="997" alt="fail2ban-running" src="https://github.com/user-attachments/assets/5a0c0fc8-7a34-4baf-856c-23c0e9a21743" />
+  
+- SSH jail status
+ <img width="1843" height="221" alt="fail2ban-ssh-status" src="https://github.com/user-attachments/assets/ea5c48bc-1bb4-486c-afc6-c1f5706d08cb" />
+ 
+- Attacker IP banned
+<img width="1843" height="221" alt="attacker-banned" src="https://github.com/user-attachments/assets/f9c93b69-5ad5-45f4-9abd-a0adc2fb7424" />
+  
+
 ## 🔗 Connect
 
 **Author:** Alex Ojo
