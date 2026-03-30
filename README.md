@@ -86,8 +86,8 @@ grep "Failed password" /var/log/auth.log | tail -n 1
 | Target Username | attackeruser |
 | Source IP Address | 192.168.0.168 |
 | Total Failed Attempts | 5 |
-| First Failed Login | *(Paste your head -n 1 output here)* |
-| Last Failed Login | *(Paste your tail -n 1 output here)* |
+| First Failed Login | Mar 29 13:44:45 — Failed password for attackeruser from 192.168.0.168 |
+| Last Failed Login | Mar 29 13:46:35 — Failed password for attackeruser from 192.168.0.168 |
 
 ---
 
