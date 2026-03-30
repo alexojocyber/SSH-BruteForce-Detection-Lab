@@ -91,9 +91,59 @@ grep "Failed password" /var/log/auth.log | tail -n 1
 
 ---
 
+---
+
+# 🎯 MITRE ATT&CK Mapping
+
+The observed attack activity aligns with the following MITRE ATT&CK techniques:
+
+| Tactic | Technique | ID | Description |
+|-------|-----------|----|-------------|
+| Credential Access | Brute Force | T1110 | Repeated password attempts were used to guess valid credentials. |
+| Initial Access | Valid Accounts | T1078 | Successful credential compromise could allow attacker login using valid credentials. |
+| Persistence | Account Access | T1098 | Attackers may attempt to maintain access after successful authentication. |
+
+---
+
+## 🔍 Mapping Explanation
+
+During this investigation, multiple failed SSH login attempts were observed targeting the attackeruser account.
+
+These repeated login failures are characteristic of:
+
+T1110 — Brute Force
+
+This technique involves automated attempts to guess passwords until valid credentials are found.
+
+If successful, the attacker could gain:
+
+- Unauthorized system access  
+- Persistent account control  
+- Remote system access via SSH  
+
+Understanding MITRE ATT&CK mapping helps analysts identify attacker behavior patterns and implement appropriate defensive controls.
+
+---
+
 ## ⚠️ Risk Impact
 
 Repeated failed SSH login attempts indicate a brute-force attack attempt. If successful, attackers could gain unauthorized access to the system, leading to data compromise, privilege escalation, or system misuse.
+
+---
+
+---
+
+# 🚨 Incident Response Actions
+
+After identifying repeated failed SSH login attempts, the following response actions were taken:
+
+1. Authentication logs were reviewed to identify suspicious login patterns.
+2. The targeted username (attackeruser) was confirmed.
+3. Failed login attempts were counted to determine attack intensity.
+4. Fail2Ban was installed to automatically block repeated attackers.
+5. SSH monitoring was enabled to track ongoing login activity.
+
+These actions helped contain the attack and prevent further unauthorized access attempts.
 
 ---
 
